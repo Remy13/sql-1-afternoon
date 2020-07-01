@@ -13,21 +13,77 @@ Any new tables or records that we add into the database will be removed after yo
 ### Instructions
 1. Create a table called person that records a person's id, name, age, height ( in cm ), city, favorite_color. 
     * id should be an auto-incrementing id/primary key - Use type: SERIAL
+    
+    CREATE TABLE PERSON (
+    id SERIAL PRIMARY KEY,
+    name text,
+    age int,
+    height float,
+    city text,
+    favorite_color text
+);
+
 2. Add 5 different people into the person database. 
     * Remember to not include the person_id because it should auto-increment.
+
+    INSERT INTO person (name, age, height, city, favorite_color)
+	values
+		('bob', 23, 134, 'seattle', 'red'),
+		('bill', 21, 124, 'seattle', 'green'),
+		('jill', 13, 114, 'denver', 'yellow'),
+		('stacey', 33, 164, 'New York', 'purple'),
+		('louie', 43, 134, 'salt lake city', 'rainbow');
+    
+    select * from person;
+
 3. List all the people in the person table by height from tallest to shortest.
+
+    select * from person order by height desc;
+
 4. List all the people in the person table by height from shortest to tallest.
+
+    select * from person order by height asc;
+
 5. List all the people in the person table by age from oldest to youngest.
+
+    select * from person order by age desc;
+
 6. List all the people in the person table older than age 20.
+
+    select * from person where age > 20;
+
 7. List all the people in the person table that are exactly 18.
+
+    select * from person where age = 18;
+
 8. List all the people in the person table that are less than 20 and older than 30.
+
+    select * from person where (age < 20) or (age >30);
+
 9. List all the people in the person table that are not 27 (Use not equals).
+
+    select * from person where age != 27;
+
 10. List all the people in the person table where their favorite color is not red.
+
+    select * from person where favorite_color != 'red';
+
 11. List all the people in the person table where their favorite color is not red and is not blue.
+
+    select * from person where favorite_color != 'red' and favorite_color != 'blue';
+
 12. List all the people in the person table where their favorite color is orange or green.
+
+    select * from person where favorite_color = 'orange' or favorite_color = 'green';
+
 13. List all the people in the person table where their favorite color is orange, green or blue (use IN).
+
+    select * from person  where favorite_color in ('orange', 'green', 'blue');
+
 14. List all the people in the person table where their favorite color is yellow or purple (use IN).
 
+    select * from person  where favorite_color in ('yellow', 'purple');
+    
 ### Solution
 
 <details>
